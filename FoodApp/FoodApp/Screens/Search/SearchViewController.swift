@@ -31,7 +31,7 @@ class SearchViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = false
+//        navigationController?.isNavigationBarHidden = false
     }
 
     func addBackground() {
@@ -100,6 +100,15 @@ class SearchViewController: UIViewController {
         
         querySearchField.center = CGPoint(x: view.center.x, y: 350)
         buttonSearch.center = CGPoint(x: view.center.x, y: 430)
+        buttonSearch.addTarget(self, action: #selector(showFoodsList), for: .touchUpInside)
+    }
+    
+    @objc func showFoodsList() {
+        let foodListController = FoodsListViewController(viewModel: "FoodsList")
+        foodListController.navigationController?.isNavigationBarHidden = true
+        navigationController?.pushViewController(foodListController, animated: true)
     }
 }
+
+
 
