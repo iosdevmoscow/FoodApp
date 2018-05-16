@@ -12,6 +12,7 @@ class FoodsListViewController: UIViewController {
 
     var querySearchField: UITextField!
     var headerView: UIView!
+    var menuDataSource: MenuDataSource!
     
     convenience init(viewModel: String) {
         self.init()
@@ -28,7 +29,6 @@ class FoodsListViewController: UIViewController {
         addHeader()
         addContent()
         view.backgroundColor = .white
-        
     }
     
     func addHeader() {
@@ -85,8 +85,9 @@ class FoodsListViewController: UIViewController {
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 80, width: view.frame.width, height: 50), collectionViewLayout: layout)
         collectionView.register(MenuCell.self, forCellWithReuseIdentifier: "menuCell")
         collectionView.backgroundColor = #colorLiteral(red: 0.9098039216, green: 0.3215686275, blue: 0.1294117647, alpha: 1)
-//        let menuDataSource = MenuDataSource(items: self.getMenuItems())
-        collectionView.dataSource = self
+        
+        menuDataSource = MenuDataSource(items: self.getMenuItems())
+        collectionView.dataSource = menuDataSource
         view.addSubview(collectionView)
     }
     
@@ -104,26 +105,12 @@ class FoodsListViewController: UIViewController {
     }
     
     func addContent() {
+        addFoodsListComponent()
+    }
+    
+    func addFoodsListComponent() {
         
     }
-
     
 }
 
-extension FoodsListViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return list.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "menuCell", for: indexPath) as! MenuCell
-        cell.setup(item: list[indexPath.row])
-        return cell
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-   
-}

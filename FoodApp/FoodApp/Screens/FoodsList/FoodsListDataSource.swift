@@ -1,5 +1,5 @@
 //
-//  MenuDataSource.swift
+//  FoodsListDataSource.swift
 //  FoodApp
 //
 //  Created by Kirill Khudiakov on 16.05.2018.
@@ -8,16 +8,11 @@
 
 import UIKit
 
-struct MenuItem {
-    var title: String
-    var isActive: Bool
-}
-
-class MenuDataSource: NSObject, UICollectionViewDataSource {
+class FoodsListDataSource: NSObject, UICollectionViewDataSource {
     
-    var list: [MenuItem] = []
+    var list: [Food] = []
     
-    convenience init(items: [MenuItem]) {
+    convenience init(items: [Food]) {
         self.init()
         list = items
     }

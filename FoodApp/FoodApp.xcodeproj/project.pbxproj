@@ -11,6 +11,9 @@
 		FA391B9020AB21E1006A2CB4 /* FoodsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA391B8F20AB21E1006A2CB4 /* FoodsListViewController.swift */; };
 		FA391B9220AC54A7006A2CB4 /* MenuDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA391B9120AC54A7006A2CB4 /* MenuDataSource.swift */; };
 		FA391B9420AC673E006A2CB4 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA391B9320AC673E006A2CB4 /* MenuCell.swift */; };
+		FA391B9620AC7E1E006A2CB4 /* FoodsListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA391B9520AC7E1E006A2CB4 /* FoodsListDataSource.swift */; };
+		FA391B9920AC7E6E006A2CB4 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA391B9820AC7E6E006A2CB4 /* Food.swift */; };
+		FA391B9B20AC8096006A2CB4 /* TileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA391B9A20AC8096006A2CB4 /* TileCell.swift */; };
 		FA85415B20A9E2B700E1E8BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85415A20A9E2B700E1E8BE /* AppDelegate.swift */; };
 		FA85415D20A9E2B700E1E8BE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85415C20A9E2B700E1E8BE /* SearchViewController.swift */; };
 		FA85416220A9E2B900E1E8BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA85416120A9E2B900E1E8BE /* Assets.xcassets */; };
@@ -24,6 +27,9 @@
 		FA391B8F20AB21E1006A2CB4 /* FoodsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsListViewController.swift; sourceTree = "<group>"; };
 		FA391B9120AC54A7006A2CB4 /* MenuDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDataSource.swift; sourceTree = "<group>"; };
 		FA391B9320AC673E006A2CB4 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		FA391B9520AC7E1E006A2CB4 /* FoodsListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsListDataSource.swift; sourceTree = "<group>"; };
+		FA391B9820AC7E6E006A2CB4 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		FA391B9A20AC8096006A2CB4 /* TileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCell.swift; sourceTree = "<group>"; };
 		FA85415720A9E2B700E1E8BE /* FoodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA85415A20A9E2B700E1E8BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA85415C20A9E2B700E1E8BE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -84,8 +90,18 @@
 				FA391B8F20AB21E1006A2CB4 /* FoodsListViewController.swift */,
 				FA391B9120AC54A7006A2CB4 /* MenuDataSource.swift */,
 				FA391B9320AC673E006A2CB4 /* MenuCell.swift */,
+				FA391B9A20AC8096006A2CB4 /* TileCell.swift */,
+				FA391B9520AC7E1E006A2CB4 /* FoodsListDataSource.swift */,
 			);
 			path = FoodsList;
+			sourceTree = "<group>";
+		};
+		FA391B9720AC7E33006A2CB4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA391B9820AC7E6E006A2CB4 /* Food.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FA85414E20A9E2B700E1E8BE = {
@@ -110,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				FA85415A20A9E2B700E1E8BE /* AppDelegate.swift */,
+				FA391B9720AC7E33006A2CB4 /* Models */,
 				FA391B8C20AAF5E8006A2CB4 /* Screens */,
 				FA85416120A9E2B900E1E8BE /* Assets.xcassets */,
 				FA85416320A9E2B900E1E8BE /* LaunchScreen.storyboard */,
@@ -211,10 +228,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FoodApp/Pods-FoodApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,11 +248,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA391B9920AC7E6E006A2CB4 /* Food.swift in Sources */,
+				FA391B9620AC7E1E006A2CB4 /* FoodsListDataSource.swift in Sources */,
 				FA85415D20A9E2B700E1E8BE /* SearchViewController.swift in Sources */,
 				FA391B9420AC673E006A2CB4 /* MenuCell.swift in Sources */,
 				FA85415B20A9E2B700E1E8BE /* AppDelegate.swift in Sources */,
 				FA391B9020AB21E1006A2CB4 /* FoodsListViewController.swift in Sources */,
 				FA391B9220AC54A7006A2CB4 /* MenuDataSource.swift in Sources */,
+				FA391B9B20AC8096006A2CB4 /* TileCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
