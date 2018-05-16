@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class TileCell: UICollectionViewCell {
     
@@ -55,8 +56,6 @@ class TileCell: UICollectionViewCell {
         
         backgroundColor = .white
         
-        
-        
         // Constraints
         imageView.snp.makeConstraints { set in
             set.width.equalToSuperview()
@@ -79,11 +78,14 @@ class TileCell: UICollectionViewCell {
     }
     
     func setup(item: Food) {
-//        imageView.image
+        guard let url = URL(string: item.images?.small ?? "") else {
+            return
+        }
+        let resource = ImageResource(downloadURL: url, cacheKey: "tile_\(item.guid ?? "")")
+        imageView.kf.setImage(with: resource)
         nameLabel.text = item.name
         descLabel.text = item.description
-        reviewsLabel.text = "reviews \(item.reviews)"
-        
+        reviewsLabel.text = "reviews \(item.reviews ?? 0)"
     }
     
 }

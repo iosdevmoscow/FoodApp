@@ -91,7 +91,7 @@ class FoodsListViewController: UIViewController {
         view.addSubview(collectionView)
     }
     
-    func getMenuItems() -> [MenuItem] {
+    fileprivate func getMenuItems() -> [MenuItem] {
         return [
             MenuItem(title: "Nearby", isActive: true),
             MenuItem(title: "Popular", isActive: false),
