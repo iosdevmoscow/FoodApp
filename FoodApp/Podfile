@@ -7,5 +7,6 @@ target 'FoodApp' do
 
   # Pods for FoodApp
   pod 'SnapKit'
+  pod 'Kingfisher'
 
 end
