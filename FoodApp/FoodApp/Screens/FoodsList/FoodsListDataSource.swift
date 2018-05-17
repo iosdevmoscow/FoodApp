@@ -15,9 +15,7 @@ class FoodsListDataSource: NSObject, UICollectionViewDataSource {
     convenience init(items: [Food]) {
         self.init()
         list = items
-        list.forEach {
-            print($0.name ?? "")
-        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

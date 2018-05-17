@@ -51,7 +51,6 @@ class TileCell: UICollectionViewCell {
         layer.borderWidth = 1
         layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         
-        
         nameLabel.textColor = .black
         nameLabel.font = UIFont.systemFont(ofSize: 15)
         
@@ -80,7 +79,7 @@ class TileCell: UICollectionViewCell {
         
         descLabel.snp.makeConstraints { set in
             set.height.equalTo(14)
-            set.width.equalToSuperview()
+            set.width.equalToSuperview().inset(10)
             set.top.equalTo(nameLabel.snp.bottom).offset(5)
             set.left.equalToSuperview().offset(10)
         }
@@ -95,13 +94,14 @@ class TileCell: UICollectionViewCell {
     }
     
     func setup(item: Food) {
-        if let url = URL(string: item.images?.small ?? "") {
+        if let url = URL(string: item.images.small ) {
+        
             let resource = ImageResource(downloadURL: url, cacheKey: "tile_\(item.guid ?? "")")
             imageView.kf.setImage(with: resource)
         }
         nameLabel.text = item.name
         descLabel.text = item.description
-        reviewsLabel.text = "reviews \(item.reviews)"
+        reviewsLabel.text = "reviews \(item.reviews ?? 0)"
     }
     
 }

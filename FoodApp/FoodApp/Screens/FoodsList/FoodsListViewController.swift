@@ -14,10 +14,15 @@ class FoodsListViewController: UIViewController {
     var headerView: UIView!
     var menuDataSource: MenuDataSource!
     var listDataSource: FoodsListDataSource!
+    var foodsCollectionView: UICollectionView!
+    
+    var list: [MenuItem] {
+        return self.getMenuItems()
+    }
     
     convenience init(viewModel: String) {
         self.init()
-
+        listDataSource = FoodsListDataSource(items: [])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,12 +34,23 @@ class FoodsListViewController: UIViewController {
         
         addHeader()
         addContent()
+        
+        FoodService().getFoods { [weak self] foods in
+            self?.updateFoodsDataSource(by: foods)
+        }
+        
         view.backgroundColor = .white
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         print(view.frame.width)
+    }
+    
+    func updateFoodsDataSource(by foods: [Food]) {
+        listDataSource = FoodsListDataSource(items: foods)
+        foodsCollectionView.dataSource = listDataSource
+        foodsCollectionView.reloadData()
     }
     
     func addHeader() {
@@ -106,10 +122,6 @@ class FoodsListViewController: UIViewController {
         ]
     }
     
-    var list: [MenuItem] {
-        return self.getMenuItems()
-    }
-    
     func addContent() {
         addFoodsListComponent()
     }
@@ -122,15 +134,12 @@ class FoodsListViewController: UIViewController {
         layout.itemSize = CGSize(width: 150, height: 225)
         layout.scrollDirection = .vertical
         
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 140, width: view.frame.width, height: view.frame.height - 120), collectionViewLayout: layout)
-        collectionView.register(TileCell.self, forCellWithReuseIdentifier: "tileCell")
-        collectionView.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9725490196, alpha: 1)
-        listDataSource = FoodsListDataSource(items: FoodService().getDemo())
-        collectionView.dataSource = listDataSource
-        view.addSubview(collectionView)
+        foodsCollectionView = UICollectionView(frame: CGRect(x: 0, y: 140, width: view.frame.width, height: view.frame.height - 120 - 22), collectionViewLayout: layout)
+        foodsCollectionView.register(TileCell.self, forCellWithReuseIdentifier: "tileCell")
+        foodsCollectionView.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9725490196, alpha: 1)
+        foodsCollectionView.dataSource = listDataSource
+        view.addSubview(foodsCollectionView)
     }
-    
-    
     
 }
 
