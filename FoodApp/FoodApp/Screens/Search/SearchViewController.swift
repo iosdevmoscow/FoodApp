@@ -31,7 +31,7 @@ class SearchViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = false
+//        navigationController?.isNavigationBarHidden = false
     }
 
     func addBackground() {
@@ -54,6 +54,7 @@ class SearchViewController: UIViewController {
         userImageView.layer.borderWidth = 2
         userImageView.layer.borderColor = UIColor.white.cgColor
         userImageView.layer.cornerRadius = 30
+        userImageView.clipsToBounds = true
         view.addSubview(userImageView)
         
         let label = UILabel(frame: CGRect(x: userImageView.center.x + 60, y: userImageView.center.y - 15, width: 200, height: 30))
@@ -100,6 +101,15 @@ class SearchViewController: UIViewController {
         
         querySearchField.center = CGPoint(x: view.center.x, y: 350)
         buttonSearch.center = CGPoint(x: view.center.x, y: 430)
+        buttonSearch.addTarget(self, action: #selector(showFoodsList), for: .touchUpInside)
+    }
+    
+    @objc func showFoodsList() {
+        let foodListController = FoodsListViewController(viewModel: "FoodsList")
+        foodListController.navigationController?.isNavigationBarHidden = true
+        navigationController?.pushViewController(foodListController, animated: true)
     }
 }
+
+
 
