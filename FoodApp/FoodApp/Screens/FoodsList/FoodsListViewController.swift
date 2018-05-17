@@ -138,8 +138,17 @@ class FoodsListViewController: UIViewController {
         foodsCollectionView.register(TileCell.self, forCellWithReuseIdentifier: "tileCell")
         foodsCollectionView.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9725490196, alpha: 1)
         foodsCollectionView.dataSource = listDataSource
+        foodsCollectionView.delegate = self
         view.addSubview(foodsCollectionView)
     }
     
+}
+
+extension FoodsListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let detail = FoodDetailViewController(model: listDataSource.list[indexPath.row])
+        present(detail, animated: true)
+    }
 }
 

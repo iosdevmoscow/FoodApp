@@ -20,6 +20,7 @@
 		FA85416220A9E2B900E1E8BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA85416120A9E2B900E1E8BE /* Assets.xcassets */; };
 		FA85416520A9E2B900E1E8BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA85416320A9E2B900E1E8BE /* LaunchScreen.storyboard */; };
 		FACF6A5520ADD4F90078F463 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACF6A5420ADD4F90078F463 /* API.swift */; };
+		FACF6A5820ADF5BE0078F463 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACF6A5720ADF5BE0078F463 /* FoodDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		FA85416420A9E2B900E1E8BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA85416620A9E2B900E1E8BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FACF6A5420ADD4F90078F463 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		FACF6A5720ADF5BE0078F463 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		FA391B8C20AAF5E8006A2CB4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FACF6A5620ADF5AA0078F463 /* FoodDetail */,
 				FA391B8E20AB217E006A2CB4 /* FoodsList */,
 				FA391B8D20AAF5FB006A2CB4 /* Search */,
 			);
@@ -147,6 +150,14 @@
 				FA85416620A9E2B900E1E8BE /* Info.plist */,
 			);
 			path = FoodApp;
+			sourceTree = "<group>";
+		};
+		FACF6A5620ADF5AA0078F463 /* FoodDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FACF6A5720ADF5BE0078F463 /* FoodDetailViewController.swift */,
+			);
+			path = FoodDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +281,7 @@
 			files = (
 				FA391B9920AC7E6E006A2CB4 /* Food.swift in Sources */,
 				FA391B9620AC7E1E006A2CB4 /* FoodsListDataSource.swift in Sources */,
+				FACF6A5820ADF5BE0078F463 /* FoodDetailViewController.swift in Sources */,
 				FA85415D20A9E2B700E1E8BE /* SearchViewController.swift in Sources */,
 				FA391B9420AC673E006A2CB4 /* MenuCell.swift in Sources */,
 				FACF6A5520ADD4F90078F463 /* API.swift in Sources */,
