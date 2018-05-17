@@ -7,15 +7,27 @@
 //
 
 import Foundation
+import Moya
 
-class FoodService {
-    func getDemo() -> [Food] {
-        return [
-            Food(name: "One"),
-            Food(name: "two tow"),
-            Food(name: "Three"),
-            Food(name: "Four"),
-            Food(name: "Five"),
-        ]
+class FoodService: MoyaProvider<API> {
+    
+    func getFoods(onSuccess: @escaping ([Food])->Void )  {
+        request(.getFoods) { result in
+            switch (result) {
+            case let .success(response):
+                do {
+                    let foods = try JSONDecoder().decode([Food].self, from: response.data)
+                    onSuccess(foods)
+                } catch {
+                    print("error parsing:", error.localizedDescription)
+                }
+                
+                break
+            case .failure(let error):
+                print("error: ", error.errorDescription ?? "")
+                break
+            }
+        }
     }
+    
 }
