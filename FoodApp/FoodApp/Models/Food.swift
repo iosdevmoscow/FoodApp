@@ -10,22 +10,23 @@ import Foundation
 
 
 
-class FoodImage {
+class FoodImage: Codable {
     var main: String?
-    var small: String = "https://placehold.it/163x132"
+    var small: String = ""
 }
 
-class Food  {
+class Food: Codable  {
     var guid: String?
     var index: Int?
     var name: String?
-    var description: String = "text"
-    var price: Float?
-    var images: FoodImage?
-    var reviews: Int = 214
+    var price: String?
+    var description: String = ""
+    var images: FoodImage
+    var reviews: Int?
     
     init(name: String) {
         self.name = name
         self.images = FoodImage()
     }
 }
+
