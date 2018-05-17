@@ -19,6 +19,7 @@
 		FA85415D20A9E2B700E1E8BE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85415C20A9E2B700E1E8BE /* SearchViewController.swift */; };
 		FA85416220A9E2B900E1E8BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA85416120A9E2B900E1E8BE /* Assets.xcassets */; };
 		FA85416520A9E2B900E1E8BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA85416320A9E2B900E1E8BE /* LaunchScreen.storyboard */; };
+		FACF6A5520ADD4F90078F463 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACF6A5420ADD4F90078F463 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FA85416120A9E2B900E1E8BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA85416420A9E2B900E1E8BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA85416620A9E2B900E1E8BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FACF6A5420ADD4F90078F463 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				71E54F7620ACFBD4007AAFEB /* FoodService.swift */,
+				FACF6A5420ADD4F90078F463 /* API.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -239,12 +242,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FoodApp/Pods-FoodApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +272,7 @@
 				FA391B9620AC7E1E006A2CB4 /* FoodsListDataSource.swift in Sources */,
 				FA85415D20A9E2B700E1E8BE /* SearchViewController.swift in Sources */,
 				FA391B9420AC673E006A2CB4 /* MenuCell.swift in Sources */,
+				FACF6A5520ADD4F90078F463 /* API.swift in Sources */,
 				71E54F7720ACFBD4007AAFEB /* FoodService.swift in Sources */,
 				FA85415B20A9E2B700E1E8BE /* AppDelegate.swift in Sources */,
 				FA391B9020AB21E1006A2CB4 /* FoodsListViewController.swift in Sources */,
