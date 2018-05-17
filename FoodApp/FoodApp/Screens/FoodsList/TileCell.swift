@@ -48,11 +48,19 @@ class TileCell: UICollectionViewCell {
         addSubview(descLabel)
         addSubview(reviewsLabel)
         
+        layer.borderWidth = 1
+        layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        
+        
         nameLabel.textColor = .black
         nameLabel.font = UIFont.systemFont(ofSize: 15)
         
         descLabel.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        descLabel.font = UIFont.systemFont(ofSize: 14)
+        descLabel.font = UIFont.systemFont(ofSize: 10)
+        
+        reviewsLabel.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        reviewsLabel.font = UIFont.systemFont(ofSize: 9)
+        reviewsLabel.textAlignment = .right
         
         backgroundColor = .white
         
@@ -67,12 +75,21 @@ class TileCell: UICollectionViewCell {
             set.width.equalToSuperview()
             set.height.equalTo(36)
             set.top.equalTo(imageView.snp.bottom).offset(5)
+            set.left.equalToSuperview().offset(10)
         }
         
         descLabel.snp.makeConstraints { set in
             set.height.equalTo(14)
             set.width.equalToSuperview()
             set.top.equalTo(nameLabel.snp.bottom).offset(5)
+            set.left.equalToSuperview().offset(10)
+        }
+        
+        reviewsLabel.snp.makeConstraints { set in
+            set.width.equalTo(80)
+            set.height.equalTo(12)
+            set.bottom.equalToSuperview().offset(-10)
+            set.right.equalToSuperview().offset(-10)
         }
         
     }
@@ -84,7 +101,7 @@ class TileCell: UICollectionViewCell {
         }
         nameLabel.text = item.name
         descLabel.text = item.description
-        reviewsLabel.text = "reviews \(item.reviews ?? 0)"
+        reviewsLabel.text = "reviews \(item.reviews)"
     }
     
 }

@@ -12,19 +12,20 @@ import Foundation
 
 class FoodImage {
     var main: String?
-    var small: String?
+    var small: String = "https://placehold.it/163x132"
 }
 
 class Food  {
     var guid: String?
     var index: Int?
     var name: String?
-    var description: String?
+    var description: String = "text"
     var price: Float?
     var images: FoodImage?
-    var reviews: Int?
+    var reviews: Int = 214
     
     init(name: String) {
         self.name = name
+        self.images = FoodImage()
     }
 }

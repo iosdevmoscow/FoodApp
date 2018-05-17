@@ -32,6 +32,11 @@ class FoodsListViewController: UIViewController {
         view.backgroundColor = .white
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print(view.frame.width)
+    }
+    
     func addHeader() {
         headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 120))
         headerView.backgroundColor = #colorLiteral(red: 0.9098039216, green: 0.3215686275, blue: 0.1294117647, alpha: 1)
@@ -114,13 +119,12 @@ class FoodsListViewController: UIViewController {
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 8
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        layout.itemSize = CGSize(width: 150, height: 260)
-//        layout.estimatedItemSize = CGSize(width: 40, height: 40)
+        layout.itemSize = CGSize(width: 150, height: 225)
         layout.scrollDirection = .vertical
         
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 140, width: view.frame.width, height: view.frame.height - 120), collectionViewLayout: layout)
         collectionView.register(TileCell.self, forCellWithReuseIdentifier: "tileCell")
-        collectionView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        collectionView.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9725490196, alpha: 1)
         listDataSource = FoodsListDataSource(items: FoodService().getDemo())
         collectionView.dataSource = listDataSource
         view.addSubview(collectionView)
