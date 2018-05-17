@@ -54,6 +54,7 @@ class SearchViewController: UIViewController {
         userImageView.layer.borderWidth = 2
         userImageView.layer.borderColor = UIColor.white.cgColor
         userImageView.layer.cornerRadius = 30
+        userImageView.clipsToBounds = true
         view.addSubview(userImageView)
         
         let label = UILabel(frame: CGRect(x: userImageView.center.x + 60, y: userImageView.center.y - 15, width: 200, height: 30))
