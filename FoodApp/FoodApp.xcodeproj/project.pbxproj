@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		14FD776E0B5976766DF03A98 /* Pods_FoodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C58CB9597F7FC5E270F2D5C /* Pods_FoodApp.framework */; };
+		71E54F7720ACFBD4007AAFEB /* FoodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E54F7620ACFBD4007AAFEB /* FoodService.swift */; };
 		FA391B9020AB21E1006A2CB4 /* FoodsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA391B8F20AB21E1006A2CB4 /* FoodsListViewController.swift */; };
 		FA391B9220AC54A7006A2CB4 /* MenuDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA391B9120AC54A7006A2CB4 /* MenuDataSource.swift */; };
 		FA391B9420AC673E006A2CB4 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA391B9320AC673E006A2CB4 /* MenuCell.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		0BFFFD3FB51A2029760833D0 /* Pods-FoodApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodApp/Pods-FoodApp.debug.xcconfig"; sourceTree = "<group>"; };
 		0C58CB9597F7FC5E270F2D5C /* Pods_FoodApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71E54F7620ACFBD4007AAFEB /* FoodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodService.swift; sourceTree = "<group>"; };
 		D86C1C4BCD1BB65872B3FC40 /* Pods-FoodApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodApp/Pods-FoodApp.release.xcconfig"; sourceTree = "<group>"; };
 		FA391B8F20AB21E1006A2CB4 /* FoodsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsListViewController.swift; sourceTree = "<group>"; };
 		FA391B9120AC54A7006A2CB4 /* MenuDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDataSource.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71E54F7520ACFBA6007AAFEB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				71E54F7620ACFBD4007AAFEB /* FoodService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		9C5FDCDC676707483DF0793A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				FA85415A20A9E2B700E1E8BE /* AppDelegate.swift */,
+				71E54F7520ACFBA6007AAFEB /* Service */,
 				FA391B9720AC7E33006A2CB4 /* Models */,
 				FA391B8C20AAF5E8006A2CB4 /* Screens */,
 				FA85416120A9E2B900E1E8BE /* Assets.xcassets */,
@@ -252,6 +263,7 @@
 				FA391B9620AC7E1E006A2CB4 /* FoodsListDataSource.swift in Sources */,
 				FA85415D20A9E2B700E1E8BE /* SearchViewController.swift in Sources */,
 				FA391B9420AC673E006A2CB4 /* MenuCell.swift in Sources */,
+				71E54F7720ACFBD4007AAFEB /* FoodService.swift in Sources */,
 				FA85415B20A9E2B700E1E8BE /* AppDelegate.swift in Sources */,
 				FA391B9020AB21E1006A2CB4 /* FoodsListViewController.swift in Sources */,
 				FA391B9220AC54A7006A2CB4 /* MenuDataSource.swift in Sources */,
@@ -395,7 +407,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RF42FG352F;
 				INFOPLIST_FILE = FoodApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = adeveloper.FoodApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -411,7 +426,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RF42FG352F;
 				INFOPLIST_FILE = FoodApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = adeveloper.FoodApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

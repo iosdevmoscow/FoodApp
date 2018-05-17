@@ -15,7 +15,7 @@ class FoodImage {
     var small: String?
 }
 
-class Food {
+class Food  {
     var guid: String?
     var index: Int?
     var name: String?
@@ -23,4 +23,8 @@ class Food {
     var price: Float?
     var images: FoodImage?
     var reviews: Int?
+    
+    init(name: String) {
+        self.name = name
+    }
 }

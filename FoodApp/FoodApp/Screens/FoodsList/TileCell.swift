@@ -78,11 +78,10 @@ class TileCell: UICollectionViewCell {
     }
     
     func setup(item: Food) {
-        guard let url = URL(string: item.images?.small ?? "") else {
-            return
+        if let url = URL(string: item.images?.small ?? "") {
+            let resource = ImageResource(downloadURL: url, cacheKey: "tile_\(item.guid ?? "")")
+            imageView.kf.setImage(with: resource)
         }
-        let resource = ImageResource(downloadURL: url, cacheKey: "tile_\(item.guid ?? "")")
-        imageView.kf.setImage(with: resource)
         nameLabel.text = item.name
         descLabel.text = item.description
         reviewsLabel.text = "reviews \(item.reviews ?? 0)"

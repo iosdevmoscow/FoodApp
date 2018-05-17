@@ -13,6 +13,7 @@ class FoodsListViewController: UIViewController {
     var querySearchField: UITextField!
     var headerView: UIView!
     var menuDataSource: MenuDataSource!
+    var listDataSource: FoodsListDataSource!
     
     convenience init(viewModel: String) {
         self.init()
@@ -109,8 +110,23 @@ class FoodsListViewController: UIViewController {
     }
     
     func addFoodsListComponent() {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 8
+        layout.minimumLineSpacing = 8
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        layout.itemSize = CGSize(width: 150, height: 260)
+//        layout.estimatedItemSize = CGSize(width: 40, height: 40)
+        layout.scrollDirection = .vertical
         
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 140, width: view.frame.width, height: view.frame.height - 120), collectionViewLayout: layout)
+        collectionView.register(TileCell.self, forCellWithReuseIdentifier: "tileCell")
+        collectionView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        listDataSource = FoodsListDataSource(items: FoodService().getDemo())
+        collectionView.dataSource = listDataSource
+        view.addSubview(collectionView)
     }
+    
+    
     
 }
 
