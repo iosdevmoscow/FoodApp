@@ -17,7 +17,7 @@ class FoodDetailViewController: UIViewController {
     var mainNameLabel: UILabel!
     var bottomView: UIView!
     var contentView: UIView!
-    var buttonFavorite: UIButton!
+    var favoriteButton: UIButton!
     var backButton: UIButton!
     
     convenience init(model: Food) {
@@ -68,6 +68,13 @@ class FoodDetailViewController: UIViewController {
         bottomView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 48))
         view.addSubview(bottomView)
         
+        favoriteButton = UIButton(type: .custom)
+        favoriteButton.setImage(#imageLiteral(resourceName: "icon_favorite"), for: .normal)
+        favoriteButton.tintColor = .white
+        favoriteButton.backgroundColor = #colorLiteral(red: 0.9098039216, green: 0.3215686275, blue: 0.1294117647, alpha: 1)
+        favoriteButton.layer.cornerRadius = 32 / 2
+        favoriteButton.addTarget(self, action: #selector(addToFavorite), for: .touchUpInside)
+        view.addSubview(favoriteButton)
     }
     
     @objc func back() {
@@ -75,6 +82,9 @@ class FoodDetailViewController: UIViewController {
     }
     
     
+    @objc func addToFavorite() {
+        print("action add to favorite list")
+    }
     
 }
 
