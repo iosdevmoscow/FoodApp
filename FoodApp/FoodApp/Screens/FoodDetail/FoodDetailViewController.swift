@@ -17,7 +17,7 @@ class FoodDetailViewController: UIViewController {
     var mainNameLabel: UILabel!
     var separatorLabel: UILabel!
     var bottomView: UIView!
-    var contentView: UIView!
+    var contentView: UITextView!
     var favoriteButton: UIButton!
     var backButton: UIButton!
     var shareButton: UIButton!
@@ -56,6 +56,14 @@ class FoodDetailViewController: UIViewController {
             set.height.equalTo(17)
             set.top.equalTo(mainNameLabel.snp.bottom)
         }
+        
+        contentView.snp.makeConstraints { set in
+            set.top.equalTo(separatorLabel.snp.bottom)
+            set.left.equalToSuperview()
+            set.right.equalToSuperview()
+            set.bottom.equalTo(bottomView.snp.top)
+        }
+        
     }
     
     func configureUI() {
@@ -91,6 +99,12 @@ class FoodDetailViewController: UIViewController {
         separatorLabel.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
         separatorLabel.font = UIFont.systemFont(ofSize: 12)
         view.addSubview(separatorLabel)
+        
+        contentView = UITextView(frame: .zero)
+        contentView.text = viewModel.description
+        contentView.textColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
+        contentView.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
+        view.addSubview(contentView)
         bottomView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 48))
         view.addSubview(bottomView)
         
