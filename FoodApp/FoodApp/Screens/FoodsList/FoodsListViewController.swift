@@ -13,8 +13,12 @@ class FoodsListViewController: UIViewController {
     var querySearchField: UITextField!
     var headerView: UIView!
     var menuDataSource: MenuDataSource!
+    var menuDelegate: MenuDelegate!
     var listDataSource: FoodsListDataSource!
     var foodsCollectionView: UICollectionView!
+    
+    var tilesImageView: UIButton!
+    var blocksImageView: UIButton!
     
     var list: [MenuItem] {
         return self.getMenuItems()
@@ -23,6 +27,7 @@ class FoodsListViewController: UIViewController {
     convenience init(viewModel: String) {
         self.init()
         listDataSource = FoodsListDataSource(items: [])
+        menuDelegate = MenuDelegate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,17 +88,40 @@ class FoodsListViewController: UIViewController {
     
     fileprivate func  addSortButtons() {
         let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
-        let tilesImageView = UIImageView(image: #imageLiteral(resourceName: "icon_tiles"))
-        let blocksImageView = UIImageView(image: #imageLiteral(resourceName: "icon_blocks"))
+        print("add Sort Buttons")
+        tilesImageView = UIButton(frame: CGRect(x: 0, y: 0, width: 14, height: 14))
+        tilesImageView.setImage(#imageLiteral(resourceName: "icon_tiles"), for: .normal)
+        tilesImageView.addTarget(self, action: #selector(viewAsTiles), for: .touchUpInside)
+        
+        
+        blocksImageView = UIButton(frame: CGRect(x: 0, y: 0, width: 14, height: 14))
+        blocksImageView.setImage(#imageLiteral(resourceName: "icon_blocks"), for: .normal)
+        blocksImageView.addTarget(self, action: #selector(viewAsBlocks), for: .touchUpInside)
+        
+        
         tilesImageView.center = rightView.center
         tilesImageView.center.x -= 20
         tilesImageView.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         blocksImageView.tintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         blocksImageView.center = rightView.center
+        
         rightView.addSubview(tilesImageView)
         rightView.addSubview(blocksImageView)
+        
         querySearchField.rightViewMode = .always
         querySearchField.rightView = rightView
+    }
+    
+    @objc  fileprivate func viewAsTiles() {
+        print("as Tiles")
+        tilesImageView.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        blocksImageView.tintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+    }
+    
+    @objc  fileprivate func viewAsBlocks() {
+        print("as Blocks")
+        tilesImageView.tintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        blocksImageView.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
     }
     
     func addCategoriesMenu() {
@@ -109,6 +137,14 @@ class FoodsListViewController: UIViewController {
         
         menuDataSource = MenuDataSource(items: self.getMenuItems())
         collectionView.dataSource = menuDataSource
+        menuDelegate.onTap = { [weak self] number in
+            print("change category")
+            if let listDataSource = self?.listDataSource {
+              listDataSource.filterCriteria = number
+              self?.foodsCollectionView.reloadData()
+            }
+        }
+        collectionView.delegate = menuDelegate
         view.addSubview(collectionView)
     }
     

@@ -11,6 +11,15 @@ import UIKit
 class FoodsListDataSource: NSObject, UICollectionViewDataSource {
     
     var list: [Food] = []
+    var filterCriteria: Int = 0
+    
+    var filteredList: [Food] {
+        if filterCriteria == 0 {
+            return list
+        } else {
+            return list.filter { ($0.index ?? 1)  < filterCriteria }
+        }
+    }
     
     convenience init(items: [Food]) {
         self.init()
@@ -19,12 +28,12 @@ class FoodsListDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return list.count
+        return filteredList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tileCell", for: indexPath) as! TileCell
-        cell.setup(item: list[indexPath.row])
+        cell.setup(item: filteredList[indexPath.row])
         return cell
     }
     
@@ -33,3 +42,5 @@ class FoodsListDataSource: NSObject, UICollectionViewDataSource {
     }
     
 }
+
+

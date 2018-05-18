@@ -15,6 +15,7 @@
 		FA391B9620AC7E1E006A2CB4 /* FoodsListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA391B9520AC7E1E006A2CB4 /* FoodsListDataSource.swift */; };
 		FA391B9920AC7E6E006A2CB4 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA391B9820AC7E6E006A2CB4 /* Food.swift */; };
 		FA391B9B20AC8096006A2CB4 /* TileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA391B9A20AC8096006A2CB4 /* TileCell.swift */; };
+		FA5DA40620AF157800174A5E /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DA40520AF157800174A5E /* MenuDelegate.swift */; };
 		FA85415B20A9E2B700E1E8BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85415A20A9E2B700E1E8BE /* AppDelegate.swift */; };
 		FA85415D20A9E2B700E1E8BE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85415C20A9E2B700E1E8BE /* SearchViewController.swift */; };
 		FA85416220A9E2B900E1E8BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA85416120A9E2B900E1E8BE /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		FA391B9520AC7E1E006A2CB4 /* FoodsListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsListDataSource.swift; sourceTree = "<group>"; };
 		FA391B9820AC7E6E006A2CB4 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		FA391B9A20AC8096006A2CB4 /* TileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCell.swift; sourceTree = "<group>"; };
+		FA5DA40520AF157800174A5E /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
 		FA85415720A9E2B700E1E8BE /* FoodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA85415A20A9E2B700E1E8BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA85415C20A9E2B700E1E8BE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -103,9 +105,8 @@
 		FA391B8E20AB217E006A2CB4 /* FoodsList */ = {
 			isa = PBXGroup;
 			children = (
+				FA5DA40420AF153300174A5E /* Menu */,
 				FA391B8F20AB21E1006A2CB4 /* FoodsListViewController.swift */,
-				FA391B9120AC54A7006A2CB4 /* MenuDataSource.swift */,
-				FA391B9320AC673E006A2CB4 /* MenuCell.swift */,
 				FA391B9A20AC8096006A2CB4 /* TileCell.swift */,
 				FA391B9520AC7E1E006A2CB4 /* FoodsListDataSource.swift */,
 			);
@@ -118,6 +119,16 @@
 				FA391B9820AC7E6E006A2CB4 /* Food.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FA5DA40420AF153300174A5E /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				FA5DA40520AF157800174A5E /* MenuDelegate.swift */,
+				FA391B9120AC54A7006A2CB4 /* MenuDataSource.swift */,
+				FA391B9320AC673E006A2CB4 /* MenuCell.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		FA85414E20A9E2B700E1E8BE = {
@@ -284,6 +295,7 @@
 				FACF6A5820ADF5BE0078F463 /* FoodDetailViewController.swift in Sources */,
 				FA85415D20A9E2B700E1E8BE /* SearchViewController.swift in Sources */,
 				FA391B9420AC673E006A2CB4 /* MenuCell.swift in Sources */,
+				FA5DA40620AF157800174A5E /* MenuDelegate.swift in Sources */,
 				FACF6A5520ADD4F90078F463 /* API.swift in Sources */,
 				71E54F7720ACFBD4007AAFEB /* FoodService.swift in Sources */,
 				FA85415B20A9E2B700E1E8BE /* AppDelegate.swift in Sources */,
