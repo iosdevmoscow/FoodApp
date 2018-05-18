@@ -21,6 +21,7 @@ class FoodDetailViewController: UIViewController {
     var favoriteButton: UIButton!
     var backButton: UIButton!
     var shareButton: UIButton!
+    var reviewsLabel: UILabel!
     
     convenience init(model: Food) {
         self.init()
@@ -76,6 +77,13 @@ class FoodDetailViewController: UIViewController {
             set.top.equalTo(bottomView.snp.top).offset(10)
             set.width.equalTo(32)
             set.height.equalTo(32)
+        }
+        
+        reviewsLabel.snp.makeConstraints { set in
+            set.left.equalTo(0).offset(20)
+            set.right.equalTo(favoriteButton.snp.left).inset(20)
+            set.centerY.equalTo(bottomView.snp.centerY)
+            set.height.equalTo(20)
         }
         
     }
@@ -134,6 +142,12 @@ class FoodDetailViewController: UIViewController {
         favoriteButton.layer.cornerRadius = 32 / 2
         favoriteButton.addTarget(self, action: #selector(addToFavorite), for: .touchUpInside)
         view.addSubview(favoriteButton)
+        
+        reviewsLabel = UILabel(frame: .zero)
+        reviewsLabel.text = "\(viewModel.reviews ?? 0) reviews"
+        reviewsLabel.textColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
+        reviewsLabel.textAlignment = .left
+        view.addSubview(reviewsLabel)
     }
     
     @objc func back() {
