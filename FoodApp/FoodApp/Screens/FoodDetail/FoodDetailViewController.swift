@@ -57,6 +57,13 @@ class FoodDetailViewController: UIViewController {
             set.top.equalTo(mainNameLabel.snp.bottom)
         }
         
+        bottomView.snp.makeConstraints { set in
+            set.height.equalTo(48)
+            set.width.equalToSuperview()
+            set.left.equalTo(0)
+            set.bottom.equalToSuperview()
+        }
+        
         contentView.snp.makeConstraints { set in
             set.top.equalTo(separatorLabel.snp.bottom)
             set.left.equalToSuperview()
@@ -64,12 +71,21 @@ class FoodDetailViewController: UIViewController {
             set.bottom.equalTo(bottomView.snp.top)
         }
         
+        favoriteButton.snp.makeConstraints { set in
+            set.right.equalToSuperview().inset(20)
+            set.top.equalTo(bottomView.snp.top).offset(10)
+            set.width.equalTo(32)
+            set.height.equalTo(32)
+        }
+        
     }
     
     func configureUI() {
+        view.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
+        
         mainImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 300))
         if let url = URL(string: viewModel.images.main ?? "") {
-            let resource = ImageResource(downloadURL: url, cacheKey: "main_\(viewModel.guid)")
+            let resource = ImageResource(downloadURL: url, cacheKey: "main_\(viewModel.guid ?? "guid")")
             mainImageView.kf.setImage(with: resource)
         }
         view.addSubview(mainImageView)
@@ -89,6 +105,7 @@ class FoodDetailViewController: UIViewController {
         mainNameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 27))
         mainNameLabel.textAlignment = .center
         mainNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        mainNameLabel.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
         view.addSubview(mainNameLabel)
         mainNameLabel.text = viewModel.name ?? ""
         
@@ -105,7 +122,9 @@ class FoodDetailViewController: UIViewController {
         contentView.textColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
         contentView.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
         view.addSubview(contentView)
+
         bottomView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 48))
+        bottomView.backgroundColor = .white
         view.addSubview(bottomView)
         
         favoriteButton = UIButton(type: .custom)
