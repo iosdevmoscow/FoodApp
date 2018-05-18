@@ -96,6 +96,7 @@ class FoodDetailViewController: UIViewController {
             let resource = ImageResource(downloadURL: url, cacheKey: "main_\(viewModel.guid ?? "guid")")
             mainImageView.kf.setImage(with: resource)
         }
+        mainImageView.contentMode = .scaleAspectFill
         view.addSubview(mainImageView)
         
         backButton = UIButton(type: .custom)
