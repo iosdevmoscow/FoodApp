@@ -48,9 +48,6 @@ class TileCell: UICollectionViewCell {
         addSubview(descLabel)
         addSubview(reviewsLabel)
         
-        layer.borderWidth = 1
-        layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        
         nameLabel.textColor = .black
         nameLabel.font = UIFont.systemFont(ofSize: 15)
         
