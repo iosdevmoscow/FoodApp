@@ -165,7 +165,9 @@ class FoodDetailViewController: UIViewController {
     }
     
     @objc func addToFavorite() {
-        print("action add to favorite list")
+        let alert = UIAlertController(title: "Dish added to your favorites", message: "It's action", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
     
 }
