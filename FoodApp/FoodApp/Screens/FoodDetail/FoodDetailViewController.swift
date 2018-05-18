@@ -19,6 +19,7 @@ class FoodDetailViewController: UIViewController {
     var contentView: UIView!
     var favoriteButton: UIButton!
     var backButton: UIButton!
+    var shareButton: UIButton!
     
     convenience init(model: Food) {
         self.init()
@@ -43,6 +44,11 @@ class FoodDetailViewController: UIViewController {
             set.top.equalTo(mainImageView.snp.top).offset(40)
             set.left.equalTo(mainImageView.snp.left).offset(20)
         }
+        
+        shareButton.snp.makeConstraints { set in
+            set.top.equalTo(mainImageView.snp.top).offset(40)
+            set.right.equalTo(mainImageView.snp.right).inset(20)
+        }
     }
     
     func configureUI() {
@@ -58,6 +64,12 @@ class FoodDetailViewController: UIViewController {
         backButton.tintColor = .white
         backButton.addTarget(self, action: #selector(back), for: .touchUpInside)
         view.addSubview(backButton)
+        
+        shareButton = UIButton(type: .custom)
+        shareButton.setImage(#imageLiteral(resourceName: "icon_share"), for: .normal)
+        shareButton.tintColor = .white
+        shareButton.addTarget(self, action: #selector(share), for: .touchUpInside)
+        view.addSubview(shareButton)
         
         mainNameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 27))
         mainNameLabel.textAlignment = .center
@@ -81,6 +93,15 @@ class FoodDetailViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    @objc func share() {
+        let alert = UIAlertController(title: "Actions", message: "It's action sheet", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Action 1", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Action 2", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
     
     @objc func addToFavorite() {
         print("action add to favorite list")
