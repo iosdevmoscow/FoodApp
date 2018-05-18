@@ -44,7 +44,6 @@ class FoodsListViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        print(view.frame.width)
     }
     
     func updateFoodsDataSource(by foods: [Food]) {

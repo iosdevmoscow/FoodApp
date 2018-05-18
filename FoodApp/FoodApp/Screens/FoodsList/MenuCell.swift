@@ -32,7 +32,6 @@ class MenuCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        print(frame)
     }
     
     func build() {
