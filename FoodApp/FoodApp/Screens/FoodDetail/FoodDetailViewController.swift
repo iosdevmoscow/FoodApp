@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import Cosmos
 
 class FoodDetailViewController: UIViewController {
     
@@ -22,6 +23,7 @@ class FoodDetailViewController: UIViewController {
     var backButton: UIButton!
     var shareButton: UIButton!
     var reviewsLabel: UILabel!
+    var cosmosView: CosmosView!
     
     convenience init(model: Food) {
         self.init()
@@ -70,6 +72,10 @@ class FoodDetailViewController: UIViewController {
             set.left.equalToSuperview()
             set.right.equalToSuperview()
             set.bottom.equalTo(bottomView.snp.top)
+        }
+        
+        cosmosView.snp.makeConstraints { set in
+            
         }
         
         favoriteButton.snp.makeConstraints { set in
@@ -149,6 +155,13 @@ class FoodDetailViewController: UIViewController {
         reviewsLabel.textColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
         reviewsLabel.textAlignment = .left
         view.addSubview(reviewsLabel)
+        
+        var cosmosSettings = CosmosSettings()
+        cosmosSettings.totalStars = 5
+        cosmosSettings.starSize = 30
+        
+        cosmosView = CosmosView(settings: cosmosSettings)
+        view.addSubview(cosmosView)
     }
     
     @objc func back() {
