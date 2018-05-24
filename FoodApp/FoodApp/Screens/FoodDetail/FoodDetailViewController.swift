@@ -75,6 +75,10 @@ class FoodDetailViewController: UIViewController {
         }
         
         cosmosView.snp.makeConstraints { set in
+            set.left.equalTo(0).offset(20)
+            set.width.equalTo(72)
+            set.centerY.equalTo(bottomView.snp.centerY)
+            set.height.equalTo(20)
             
         }
         
@@ -86,8 +90,8 @@ class FoodDetailViewController: UIViewController {
         }
         
         reviewsLabel.snp.makeConstraints { set in
-            set.left.equalTo(0).offset(20)
-            set.right.equalTo(favoriteButton.snp.left).inset(20)
+            set.left.equalTo(cosmosView.snp.right).offset(30)
+            set.right.equalTo(favoriteButton.snp.left).offset(-30)
             set.centerY.equalTo(bottomView.snp.centerY)
             set.height.equalTo(20)
         }
@@ -153,14 +157,18 @@ class FoodDetailViewController: UIViewController {
         reviewsLabel = UILabel(frame: .zero)
         reviewsLabel.text = "\(viewModel.reviews ?? 0) reviews"
         reviewsLabel.textColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
-        reviewsLabel.textAlignment = .left
+        reviewsLabel.textAlignment = .right
+        reviewsLabel.font = UIFont.systemFont(ofSize: 15)
         view.addSubview(reviewsLabel)
         
         var cosmosSettings = CosmosSettings()
         cosmosSettings.totalStars = 5
-        cosmosSettings.starSize = 30
-        
+        cosmosSettings.starSize = 20
+        cosmosSettings.updateOnTouch = false
+
         cosmosView = CosmosView(settings: cosmosSettings)
+        cosmosView.rating = (Double(viewModel.reviews ?? 1) * 0.1) / 5
+        
         view.addSubview(cosmosView)
     }
     
