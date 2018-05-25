@@ -1,3 +1,3 @@
 # FoodApp
 
-<img src="https://github.com/iosdevmoscow/FoodApp/blob/master/FoodApp.png?raw=true" alt="FoodApp" >
+<img src="FoodApp.png" alt="FoodApp" >
