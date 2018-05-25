@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import Cosmos
 
 class FoodDetailViewController: UIViewController {
     
@@ -22,6 +23,7 @@ class FoodDetailViewController: UIViewController {
     var backButton: UIButton!
     var shareButton: UIButton!
     var reviewsLabel: UILabel!
+    var cosmosView: CosmosView!
     
     convenience init(model: Food) {
         self.init()
@@ -72,6 +74,14 @@ class FoodDetailViewController: UIViewController {
             set.bottom.equalTo(bottomView.snp.top)
         }
         
+        cosmosView.snp.makeConstraints { set in
+            set.left.equalTo(0).offset(20)
+            set.width.equalTo(72)
+            set.centerY.equalTo(bottomView.snp.centerY)
+            set.height.equalTo(20)
+            
+        }
+        
         favoriteButton.snp.makeConstraints { set in
             set.right.equalToSuperview().inset(20)
             set.top.equalTo(bottomView.snp.top).offset(10)
@@ -80,8 +90,8 @@ class FoodDetailViewController: UIViewController {
         }
         
         reviewsLabel.snp.makeConstraints { set in
-            set.left.equalTo(0).offset(20)
-            set.right.equalTo(favoriteButton.snp.left).inset(20)
+            set.left.equalTo(cosmosView.snp.right).offset(30)
+            set.right.equalTo(favoriteButton.snp.left).offset(-30)
             set.centerY.equalTo(bottomView.snp.centerY)
             set.height.equalTo(20)
         }
@@ -147,8 +157,19 @@ class FoodDetailViewController: UIViewController {
         reviewsLabel = UILabel(frame: .zero)
         reviewsLabel.text = "\(viewModel.reviews ?? 0) reviews"
         reviewsLabel.textColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
-        reviewsLabel.textAlignment = .left
+        reviewsLabel.textAlignment = .right
+        reviewsLabel.font = UIFont.systemFont(ofSize: 15)
         view.addSubview(reviewsLabel)
+        
+        var cosmosSettings = CosmosSettings()
+        cosmosSettings.totalStars = 5
+        cosmosSettings.starSize = 20
+        cosmosSettings.updateOnTouch = false
+
+        cosmosView = CosmosView(settings: cosmosSettings)
+        cosmosView.rating = (Double(viewModel.reviews ?? 1) * 0.1) / 5
+        
+        view.addSubview(cosmosView)
     }
     
     @objc func back() {

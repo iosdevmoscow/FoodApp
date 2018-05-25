@@ -37,3 +37,13 @@ class MenuDataSource: NSObject, UICollectionViewDataSource {
     }
     
 }
+
+extension MenuDataSource {
+    
+    func selectItem(by index: Int) {
+        list.enumerated().forEach {
+            list[$0.offset].isActive = false
+        }
+        list[index].isActive = true
+    }
+}
